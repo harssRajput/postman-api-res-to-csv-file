@@ -4,7 +4,11 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const envVar = require('./postman_env_variables');
 
-
+const args = process.argv;
+if(args.length <= 3){
+    console.error("\nInsufficient Arguments. Ex -> node script.js postman-collection.json input-data-file.csv\n")
+    return;
+}
 const inputCsvFilename = './unacademy logs - temp.csv';
 const outputFilename = 'response.csv';
 const collectionName = './newman.postman_collection.json';
