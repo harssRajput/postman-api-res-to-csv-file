@@ -1,0 +1,1 @@
+by default, delay between each request is 100 ms
