@@ -1,17 +1,18 @@
 const newman = require('newman');
 const fs = require('fs');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-
+const path = require('path');
 const envVar = require('./postman_env_variables');
 
 const args = process.argv;
 if(args.length <= 3){
-    console.error("\nInsufficient Arguments. Ex -> node script.js postman-collection.json input-data-file.csv\n")
+    console.error("\nInsufficient Arguments. Ex -> node script.js FILEPATH-of-postman-collection.json FILEPATH-of-input-data-file.csv\n")
     return;
 }
-const inputCsvFilename = './unacademy logs - temp.csv';
+console.log(args);
+const inputCsvFilename = args[3]//'./unacademy logs - temp.csv';
 const outputFilename = 'response.csv';
-const collectionName = './newman.postman_collection.json';
+const collectionName = path.resolve(args[2])//'./newman.postman_collection.json';
 
 const outputData = [];
 //extract the data from the API-Response that we want to output in .csv file
