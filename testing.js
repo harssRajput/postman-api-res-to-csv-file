@@ -4,6 +4,8 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const envVar = require('./postman_env_variables');
 
+
+const inputCsvFilename = './unacademy logs - temp.csv';
 const outputFilename = 'response.csv';
 const collectionName = './newman.postman_collection.json';
 
@@ -51,6 +53,7 @@ function outputsInCsvFile(outputData){
 newman.run({
     collection: require(collectionName),
     reporters: 'cli',
+    iterationData: inputCsvFilename,
     envVar
 })
 .on('request', (err, data) => {
