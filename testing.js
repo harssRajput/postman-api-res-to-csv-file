@@ -2,6 +2,8 @@ const newman = require('newman');
 const fs = require('fs');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
+const envVar = require('./postman_env_variables');
+
 const outputFilename = 'response.csv';
 const collectionName = './newman.postman_collection.json';
 
@@ -48,7 +50,8 @@ function outputsInCsvFile(outputData){
 
 newman.run({
     collection: require(collectionName),
-    reporters: 'cli'
+    reporters: 'cli',
+    envVar
 })
 .on('request', (err, data) => {
     if(err){
@@ -67,8 +70,8 @@ newman.run({
         console.error('collection run encountered an error.');
     }
     else {
-        // console.log(outputData);
-        outputsInCsvFile(outputData);
+        console.log(outputData);
+        // outputsInCsvFile(outputData);
         console.log('collection run completed.');
     }
 });
