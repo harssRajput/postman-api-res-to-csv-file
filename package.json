@@ -1,0 +1,17 @@
+{
+  "name": "automate_log_debug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "testing.js",
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "newman": "^5.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
