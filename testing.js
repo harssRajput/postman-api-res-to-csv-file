@@ -59,6 +59,7 @@ newman.run({
     collection: require(collectionName),
     reporters: 'cli',
     iterationData: inputCsvFilename,
+    delayRequest: 100,
     envVar
 })
 .on('request', (err, data) => {
