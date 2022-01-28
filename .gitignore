@@ -1,2 +1,4 @@
 node_modules
 .DS_Store
+newman.postman_collection.json
+response.csv
