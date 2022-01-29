@@ -60,6 +60,7 @@ newman.run({
     reporters: 'cli',
     iterationData: inputCsvFilename,
     delayRequest: 100,
+    timeoutRequest: 5000,
     envVar
 })
 .on('request', (err, data) => {
