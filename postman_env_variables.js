@@ -5,8 +5,63 @@
 const envVar = [
     {
         "key": "requestId",
-        "value": "e307bfa6-16f0-442b-9072-3d100c153xxx"
+        "value": ""
+    },
+    {
+        "key": "ActivityId",
+        "value": ""
+    },
+    {
+        "key": "CallDuration",
+        "value": ""
     }
 ]
 
 module.exports = envVar;
+
+// {
+//     "name": "newman--get prospectId from requestId",
+//     "event": [
+//         {
+//             "listen": "prerequest",
+//             "script": {
+//                 "exec": [
+//                     ""
+//                 ],
+//                 "type": "text/javascript"
+//             }
+//         }
+//     ],
+//     "request": {
+//         "method": "GET",
+//         "header": [
+//             {
+//                 "key": "x-api-key",
+//                 "value": "0y5gKfvf9g8813YoLIFqO4nkSgo3wQaL9BtpLivQ"
+//             }
+//         ],
+//         "url": {
+//             "raw": "https://asyncapi-in21.leadsquared.com/1/api/telephony/logcallcomplete/status?RequestID={{requestId}}",
+//             "protocol": "https",
+//             "host": [
+//                 "asyncapi-in21",
+//                 "leadsquared",
+//                 "com"
+//             ],
+//             "path": [
+//                 "1",
+//                 "api",
+//                 "telephony",
+//                 "logcallcomplete",
+//                 "status"
+//             ],
+//             "query": [
+//                 {
+//                     "key": "RequestID",
+//                     "value": "{{requestId}}"
+//                 }
+//             ]
+//         }
+//     },
+//     "response": []
+// },
