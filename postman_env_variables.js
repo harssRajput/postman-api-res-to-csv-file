@@ -4,11 +4,35 @@
 
 const envVar = [
     {
+        "key": "id",
+        "value": ""
+    },
+    {
         "key": "requestId",
         "value": ""
     },
     {
-        "key": "ActivityId",
+        "key": "activityId",
+        "value": ""
+    },
+    {
+        "key": "prospectId",
+        "value": ""
+    },
+    {
+        "key": "startTime",
+        "value": ""
+    },
+    {
+        "key": "endTime",
+        "value": ""
+    },
+    {
+        "key": "recordingURL",
+        "value": ""
+    },
+    {
+        "key": "customerNum",
         "value": ""
     },
     {

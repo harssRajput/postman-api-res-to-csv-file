@@ -20,18 +20,16 @@ const outputData = [];
 let formatResponse = (resObj) => {
     let formattedData;
     
-    if(resObj.TaskStatus && resObj.TaskStatus.Status === 'Success'){
+    if(resObj && resObj.data && resObj.data.id){
         formattedData = {
-            RequestId: resObj.RequestId,
-            activityId: JSON.parse(resObj.TaskStatus.Message).ProspectActivityId,
-            Status: resObj.TaskStatus.Status
+            id: resObj.data.id,
+            email: resObj.data.email,
+            first_name: resObj.data.first_name,
+            last_name: resObj.data.last_name,
+            avatar: resObj.data.avatar
         }
     }else{
-        formattedData = {
-            RequestId: resObj.RequestId,
-            activityId: 'NA',
-            Status: 'Failed'
-        }
+        formattedData = { id: '', email: '', first_name: '', last_name: '', avatar: ''}
     }
     
     return formattedData;
@@ -42,15 +40,18 @@ function outputsInCsvFile(outputData){
     const csvWriter = createCsvWriter({
         path: `${__dirname}/${outputFilename}`,
         header: [
-            {id: "RequestId", title: "RequestId"},
-            {id: 'activityId', title: 'ActivityId'},
-            {id: 'Status', title: 'Status'}
+            {id: "id", title: "id"},
+            {id: 'email', title: 'email'},
+            {id: 'first_name', title: 'first_name'},
+            {id: 'last_name', title: 'last_name'},
+            {id: 'avatar', title: 'avatar'},
         ]
     });
     
     csvWriter.writeRecords(outputData)
     .then(() => {
-        console.log(outputFilename,'file is created.');
+        console.log('Collection run completed.');
+        console.log('Please look into the dir a',outputFilename,'file is created.');
     });
 }
 
@@ -96,8 +97,7 @@ newman.run({
         console.error('collection run encountered an error.');
     }
     else {
-        console.log(outputData);
+        // console.log(outputData);
         outputsInCsvFile(outputData); //to save the output data to csv file.
-        console.log('collection run completed.');
     }
 });
